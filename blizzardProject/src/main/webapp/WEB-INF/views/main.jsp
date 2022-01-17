@@ -60,6 +60,7 @@
 <script type="text/javascript">
 
 $(document).ready(function(){
+	$(".tokenContainer").hide();
 	f_searchTokenPrice();
 });
 
@@ -82,6 +83,7 @@ function f_searchTokenPrice() {
         	   for (var i = 0; i < len; i++) {
         		   def += "0";
         	   }
+        	   $(".tokenContainer").show();
         	   odoo.default({ el:'#tPrice', from: def, to: price, animationDelay: 500 });
            }
        },
@@ -115,7 +117,9 @@ function f_searchTokenPrice() {
 	    	<br><br>
 	    	
 			<h1>API Connection Test</h1>
-			<h2 class="gold">토큰 : <strong id="tPrice" class="gold">0</strong><span class="gold">골드</span>
+			<h2 class="gold tokenContainer">토큰 : 
+				<strong id="tPrice" class="gold"></strong>
+				<span class="gold">골드</span>
 			</h2>
 	    	<br><br>
 	    	
