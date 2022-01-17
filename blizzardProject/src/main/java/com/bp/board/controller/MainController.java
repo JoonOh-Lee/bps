@@ -32,23 +32,27 @@ public class MainController {
 	@RequestMapping(value = "/")
 	public String main(Model model) {
 		
-		memberService.selectUserList(model);
+		try {
+			memberService.selectUserList(model);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
-		return "index";
+		return "main";
 	}
 	
 	@RequestMapping(value = "/searchTokenPrice")
 	@ResponseBody
 	public ResponseEntity<Map<String, Object>> searchTokenPrice(HttpServletRequest req, HttpServletResponse res, ModelMap model) throws Exception {
-		HttpHeaders header = new HttpHeaders();
-		header.add("Content-Type", "text/plain; charset=UTF-8");
 		Map<String, Object> responseMap = new HashMap<String, Object>();
-		responseMap.put("result", "SUCC");
-		Map<String, Object> tokenMap = apiService.selectTokenPrice();
-		
-		if (tokenMap != null && !tokenMap.isEmpty()) {
-			responseMap.put("tokenMap", tokenMap);
+
+		try {
+			responseMap.put("result", "SUCC");
+			responseMap.put("tokenMap", apiService.selectTokenPrice());
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+		
 		
 		return new ResponseEntity<Map<String, Object>>(responseMap, HttpStatus.CREATED);
 	}
