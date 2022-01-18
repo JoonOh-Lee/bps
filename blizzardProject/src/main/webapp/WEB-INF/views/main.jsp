@@ -13,8 +13,6 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/cover/">
 
-    
-
     <!-- Bootstrap core CSS -->
 	<link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
