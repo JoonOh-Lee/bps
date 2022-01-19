@@ -29,7 +29,7 @@ public class MainController {
 	@Resource(name = "BlizzardApiService")
 	private BlizzardApiService apiService;
 	
-	@RequestMapping(value = "/")
+	@RequestMapping(value = "/blizzard")
 	public String main(Model model) {
 		
 		try {
